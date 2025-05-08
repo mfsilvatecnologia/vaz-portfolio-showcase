@@ -11,21 +11,24 @@ const highlightedProjects = [
     title: "ValeCar Clube de Benefícios",
     description: "Plataforma de proteção veicular com contratação 100% online e assistência 24 horas.",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2574&auto=format&fit=crop",
-    tags: ["React", "Node.js", "MongoDB"]
-  },
-  {
-    id: 2,
-    title: "Desktop Cloud",
-    description: "Solução de desktops Windows na nuvem com alta performance e segurança avançada.",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2670&auto=format&fit=crop",
-    tags: ["Cloud Computing", "Windows Server", "Virtualização"]
+    tags: ["React", "Node.js", "MongoDB"],
+    roles: ["Sócio", "Desenvolvedor"]
   },
   {
     id: 3,
     title: "Contrato Automático",
     description: "Plataforma que utiliza IA para automatizar a geração de contratos.",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2226&auto=format&fit=crop",
-    tags: ["IA", "React", "Node.js", "API"]
+    tags: ["IA", "React", "Node.js", "API"],
+    roles: ["Sócio", "Desenvolvedor"]
+  },
+  {
+    id: 5,
+    title: "Estude Online",
+    description: "Plataforma de cursos e e-books que oferece infoprodutos de qualidade para desenvolvimento pessoal e profissional.",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2960&auto=format&fit=crop",
+    tags: ["React", "Node.js", "MongoDB", "LMS"],
+    roles: ["Sócio", "Desenvolvedor", "Analista"]
   }
 ];
 
@@ -42,7 +45,7 @@ const ProjectsHighlight = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {highlightedProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden border border-border card-hover">
+            <Card key={project.id} className="overflow-hidden border border-border card-hover gradient-border">
               <div className="aspect-video overflow-hidden">
                 <img 
                   src={project.image} 
@@ -59,6 +62,15 @@ const ProjectsHighlight = () => {
                     </Badge>
                   ))}
                 </div>
+                {project.roles && project.roles.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {project.roles.map((role, i) => (
+                      <Badge key={i} variant="outline" className="border-portfolio-accent text-portfolio-accent">
+                        {role}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">

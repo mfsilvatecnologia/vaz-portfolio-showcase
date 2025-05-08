@@ -93,6 +93,71 @@
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-primary to-portfolio-accent;
   }
+  
+  /* Prose styles for markdown content */
+  .prose {
+    @apply max-w-none text-foreground;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply text-foreground font-heading font-semibold;
+  }
+  
+  .prose h1 {
+    @apply text-3xl md:text-4xl mb-6;
+  }
+  
+  .prose h2 {
+    @apply text-2xl md:text-3xl mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-xl md:text-2xl mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose ul, .prose ol {
+    @apply mb-4;
+  }
+  
+  .prose li {
+    @apply mb-1;
+  }
+  
+  .prose a {
+    @apply text-portfolio-primary hover:text-portfolio-primary/80 underline;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-portfolio-primary pl-4 italic my-4;
+  }
+  
+  .prose pre {
+    @apply rounded-lg p-4 overflow-x-auto bg-slate-900 dark:bg-slate-800 mb-4;
+  }
+  
+  .prose code {
+    @apply bg-slate-100 dark:bg-slate-800 px-1 rounded;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent px-0;
+  }
+  
+  .prose img {
+    @apply rounded-lg my-6;
+  }
+  
+  .dark .prose {
+    @apply text-slate-200;
+  }
+  
+  .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4 {
+    @apply text-white;
+  }
 }
 
 @layer components {
@@ -110,5 +175,39 @@
   
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .gradient-border {
+    @apply relative rounded-lg overflow-hidden;
+  }
+  
+  .gradient-border::before {
+    @apply content-[''] absolute inset-0 rounded-lg z-[-1];
+    background: linear-gradient(
+      60deg,
+      rgba(59, 130, 246, 0.8),
+      rgba(139, 92, 246, 0.8),
+      rgba(59, 130, 246, 0.8),
+      rgba(139, 92, 246, 0.8)
+    );
+    background-size: 300% 300%;
+    animation: border-rotate 8s linear infinite;
+    padding: 2px;
+  }
+  
+  .gradient-border::after {
+    @apply content-[''] absolute inset-[1px] bg-background rounded-lg z-[-1];
+  }
+}
+
+@keyframes border-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

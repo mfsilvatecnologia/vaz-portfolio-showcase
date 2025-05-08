@@ -15,13 +15,14 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  roles?: string[];
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Card 
       id={`project-${project.id}`}
-      className={`overflow-hidden border card-hover ${project.featured ? 'md:col-span-2' : ''}`}
+      className={`overflow-hidden border card-hover gradient-border ${project.featured ? 'md:col-span-2' : ''}`}
     >
       <div className={`aspect-video ${project.featured ? 'md:h-80' : ''} overflow-hidden`}>
         <img 
@@ -49,6 +50,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </Badge>
           ))}
         </div>
+
+        {project.roles && project.roles.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {project.roles.map((role, i) => (
+              <Badge key={i} variant="outline" className="border-portfolio-accent text-portfolio-accent">
+                {role}
+              </Badge>
+            ))}
+          </div>
+        )}
       </CardHeader>
       
       <CardContent>
