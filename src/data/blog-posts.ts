@@ -95,7 +95,7 @@ Os dados são o combustível da IA. Você precisará:
 
 ### 4. Desenvolva e treine o modelo
 
-```python
+\`\`\`python
 # Exemplo simplificado de código para um agente de classificação
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
@@ -115,7 +115,7 @@ model.fit(X_train, y_train)
 # Avaliação
 accuracy = model.score(X_test, y_test)
 print(f"Acurácia: {accuracy:.2f}")
-```
+\`\`\`
 
 ### 5. Integre com sistemas existentes
 
@@ -205,11 +205,11 @@ Esta abordagem elimina a necessidade de:
 
 A capacidade dos modelos de IA de compreender linguagem natural revoluciona como os comerciantes interagem com seus sistemas de fidelidade:
 
-```
+\`\`\`
 Comerciante: "Adicione 20 reais de cashback para o cliente João da Silva, CPF 123.456.789-00, pela compra de hoje no valor de 200 reais"
 
 Sistema IA: "Cashback de R$20,00 adicionado com sucesso para João da Silva. Saldo atual: R$45,00"
-```
+\`\`\`
 
 Esta simplicidade operacional significa que:
 - Não é necessário aprender interfaces complexas
